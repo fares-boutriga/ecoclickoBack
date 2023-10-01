@@ -1,5 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize =require('../configdb')
+const Blog = require('../models/BlogModel')
 const Admin = sequelize.define('Admin', {
     id: {
       type: DataTypes.INTEGER,
@@ -18,4 +19,4 @@ const Admin = sequelize.define('Admin', {
   });
   Admin.belongsTo(Blog, { foreignKey: 'Blog_id', onDelete: 'CASCADE', onUpdate: 'CASCADE' });
 
-  module.exports={Admin}
+  module.exports=Admin

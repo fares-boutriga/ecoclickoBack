@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize =require('../configdb')
-
+const Users =require('../models/UsersModel')
 const Comments = sequelize.define('Comments', {
     id: {
       type: DataTypes.INTEGER,
@@ -18,3 +18,5 @@ const Comments = sequelize.define('Comments', {
     },
   });
   Comments.hasMany(Users, { foreignKey: 'Comments_id', onDelete: 'CASCADE', onUpdate: 'CASCADE' });
+
+  module.exports=Comments

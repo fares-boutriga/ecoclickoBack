@@ -22,6 +22,5 @@ const Users = sequelize.define('Users', {
     },
   });
 
-  Admin.belongsTo(Blog, { foreignKey: 'Blog_id', onDelete: 'CASCADE', onUpdate: 'CASCADE' });
 
-  module.exports={Users}
+  module.exports= Users

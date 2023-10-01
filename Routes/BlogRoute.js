@@ -1,6 +1,7 @@
-const router =require('express').Router()
+const router=require("express").Router()
+const {getAllBlog} =require('../controllers/BlogController')
 
-router.get('/',/*import the function from the controllers*/)
+router.get('/getAll',getAllBlog)
 
 
 module.exports=router

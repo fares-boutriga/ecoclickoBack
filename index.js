@@ -17,10 +17,10 @@ sequelize.sync({ alter: true }) // You may use { force: true } to drop and recre
   app.use(cors())
   app.use(express.json())
 
-  app.use('api/Admin',AdminRoute)
-  app.use('api/Blog',BlogRoute)
-  app.use('api/Comments',CommentsRoute)
-  app.use('api/Users',UsersRoute)
+  app.use('/api/Admin',AdminRoute)
+  app.use('/api/Blog',BlogRoute)
+  app.use('/api/Comments',CommentsRoute)
+  app.use('/api/Users',UsersRoute)
   
   const PORT=3000
   app.listen(PORT,()=>{
