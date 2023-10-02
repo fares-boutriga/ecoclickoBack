@@ -1,6 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize =require('../configdb')
-const Comments =require('../models/CommentsModel')
+const Admin =require('../models/AdminModel')
+const Comments= require('../models/CommentsModel')
 const Blog = sequelize.define('Blog', {
     id: {
       type: DataTypes.INTEGER,
@@ -21,7 +22,7 @@ const Blog = sequelize.define('Blog', {
       allowNull: true,
     },
   });
-
-  Blog.belongsTo(Comments, { foreignKey: 'Comments_id', onDelete: 'CASCADE', onUpdate: 'CASCADE' });
+  Blog.belongsTo(Admin, { foreignKey: 'admins_id', onDelete: 'CASCADE', onUpdate: 'CASCADE' });
+  Comments.belongsTo(Blog, { foreignKey: 'blogs_id', onDelete: 'CASCADE', onUpdate: 'CASCADE' });
 
    module.exports= Blog

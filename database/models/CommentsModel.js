@@ -1,6 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize =require('../configdb')
-const Users =require('../models/UsersModel')
+const Users =require('../models/UsersModel');
+const Blog = require('../models/BlogModel');
 const Comments = sequelize.define('Comments', {
     id: {
       type: DataTypes.INTEGER,
@@ -17,6 +18,8 @@ const Comments = sequelize.define('Comments', {
       allowNull: true,
     },
   });
-  Comments.hasMany(Users, { foreignKey: 'Comments_id', onDelete: 'CASCADE', onUpdate: 'CASCADE' });
 
+
+  Comments.belongsTo(Users, { foreignKey: 'users_id', onDelete: 'CASCADE', onUpdate: 'CASCADE' });
+  
   module.exports=Comments
